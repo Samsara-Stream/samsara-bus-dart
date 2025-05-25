@@ -1,5 +1,5 @@
 name: samsara_bus
-description: A starting point for Dart libraries or applications.
+description: RxDart-based multi-topics message/event bus.
 version: 1.0.0
 repository: https://github.com/Samsara-Stream/samsara-bus-dart
 
