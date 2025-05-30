@@ -1,7 +1,6 @@
 import 'dart:async';
 import 'topic.dart';
 import 'samsara_bus.dart';
-import 'models/message_envelope.dart';
 
 /// Default implementation of the SamsaraBus interface.
 class DefaultSamsaraBus implements SamsaraBus {

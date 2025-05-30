@@ -20,7 +20,7 @@ Add the package to your pubspec.yaml:
 
 ```yaml
 dependencies:
-  samsara_bus: ^1.0.0
+  samsara_bus: ^1.0.1
 ```
 
 ## Usage
