@@ -1,0 +1,40 @@
+name: Publish to pub.dev
+
+on:
+  push:
+    tags:
+      - "packages/*/v*"
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Dart
+        uses: dart-lang/setup-dart@v1
+        with:
+          sdk: stable
+
+      - name: Install dependencies
+        run: |
+          dart pub global activate melos
+          melos bootstrap
+
+      - name: Format check
+        run: melos run format
+
+      - name: Analyze
+        run: melos run analyze
+
+      - name: Test
+        run: melos run test
+
+      - name: Publish to pub.dev
+        uses: k-paxian/dart-package-publisher@v1.6
+        with:
+          credentialJson: ${{ secrets.PUB_DEV_CREDENTIALS_JSON }}
+          flutter: false
+          skipTests: true

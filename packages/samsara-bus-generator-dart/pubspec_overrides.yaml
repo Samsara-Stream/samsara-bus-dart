@@ -1,0 +1,6 @@
+# melos_managed_dependency_overrides: samsara_bus_dart,samsara_bus_exchange_dart
+dependency_overrides:
+  samsara_bus_dart:
+    path: ../samsara-bus-dart
+  samsara_bus_exchange_dart:
+    path: ../samsara-bus-exchange-dart

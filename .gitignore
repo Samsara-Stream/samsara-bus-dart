@@ -1,0 +1,41 @@
+# === Dart & Flutter ===
+.dart_tool/
+.packages
+.pub-cache/
+build/
+# Prevent accidentally committing generated files
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# === VS Code ===
+.vscode/
+
+# === IntelliJ / Android Studio ===
+.idea/
+*.iml
+
+# === Melos ===
+melos_managed_dependency_overrides.yaml
+
+# === macOS ===
+.DS_Store
+
+# === Logs & Misc ===
+*.log
+
+# === Coverage ===
+coverage/
+
+# === Lefthook ===
+lefthook-local.yml
+
+# === Optional CI/CD ===
+# Uncomment if using melos versioning
+# version.json
+
+# === Packages (in case of temp symlinks or ignored content) ===
+packages/**/pubspec.lock
+packages/**/.dart_tool/
+packages/**/build/
+packages/**/coverage/

@@ -1,0 +1,19 @@
+name: samsara_bus
+packages:
+  - packages/*
+command:
+  bootstrap:
+    usePubspecOverrides: true
+
+scripts:
+  format:
+    run: dart format . --set-exit-if-changed
+    description: Format check
+
+  analyze:
+    run: dart analyze
+    description: Analyze Dart code
+
+  test:
+    run: dart test
+    description: Run unit tests
