@@ -4,6 +4,14 @@ packages:
 command:
   bootstrap:
     usePubspecOverrides: true
+    hooks:
+      post: |
+        echo "Generating code for examples and test fixtures..."
+        cd packages/samsara-bus-generator-dart/example/calculator_example && dart run build_runner build --delete-conflicting-outputs
+        cd ../chat_example && dart run build_runner build --delete-conflicting-outputs  
+        cd ../trading_example && dart run build_runner build --delete-conflicting-outputs
+        cd ../../ && dart run build_runner build --delete-conflicting-outputs
+        echo "Code generation completed!"
 
 scripts:
   format:
@@ -17,3 +25,27 @@ scripts:
   test:
     run: dart test
     description: Run unit tests
+
+  build:
+    run: |
+      echo "Building generator examples and test fixtures..."
+      cd packages/samsara-bus-generator-dart/example/calculator_example && dart run build_runner build --delete-conflicting-outputs
+      cd ../chat_example && dart run build_runner build --delete-conflicting-outputs  
+      cd ../trading_example && dart run build_runner build --delete-conflicting-outputs
+      cd ../../ && dart run build_runner build --delete-conflicting-outputs
+    description: Generate code for examples and test fixtures
+    
+  build:watch:
+    run: |
+      echo "Starting build runner in watch mode for examples..."
+      cd packages/samsara-bus-generator-dart/example/calculator_example && dart run build_runner watch --delete-conflicting-outputs
+    description: Watch and generate code for calculator example
+
+  clean:build:
+    run: |
+      echo "Cleaning generated files..."
+      cd packages/samsara-bus-generator-dart/example/calculator_example && dart run build_runner clean
+      cd ../chat_example && dart run build_runner clean
+      cd ../trading_example && dart run build_runner clean  
+      cd ../../ && dart run build_runner clean
+    description: Clean generated files from examples and test fixtures
